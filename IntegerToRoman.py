@@ -12,4 +12,6 @@ class Solution:
         else:
             return ''
     def intToRoman(self, num):
-        return 'M'*(num/1000)+self.digit((num/100)%10,'M','D','C')+self.digit((num/10)%10,'C','L','X')+self.digit(num%10,'X','V','I')
+        return 'M'*(num/1000)+self.digit((num/100)%10,'M','D','C')\
+        +self.digit((num/10)%10,'C','L','X')\
+        +self.digit(num%10,'X','V','I')
