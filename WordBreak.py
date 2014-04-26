@@ -18,3 +18,4 @@ class Solution:
         return False
     def wordBreak(self, s, dict):
         return self.wordPart(s,0,len(s),dict)
+it changedd
