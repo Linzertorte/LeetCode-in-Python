@@ -19,3 +19,5 @@ class Solution:
     def wordBreak(self, s, dict):
         return self.wordPart(s,0,len(s),dict)
 it changedd
+I made another change
+
