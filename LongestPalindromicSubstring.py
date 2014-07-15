@@ -5,8 +5,6 @@ class Solution:
         """
         This solution used Suffix Array and Range Minimum/Maximum Query
         You can find better solution from Google. I write this just to practice Suffix Array
-        refer to http://files.cnblogs.com/newpanderking/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%89%E5%8A%9B%E5%B7%A5%E5%85%B7.pdf
-
         """
         def makesa(s,sa,height,rank):
             n = len(s)
