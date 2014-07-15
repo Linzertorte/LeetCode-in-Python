@@ -1,4 +1,4 @@
-import math
+#import math
 class Solution:
     # @return a string
     def longestPalindrome(self, s):
