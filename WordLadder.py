@@ -20,5 +20,4 @@ class Solution:
                 if w not in dist:
                     dist[w] = dist[head]+1
                     queue.append(w)
-            
         return 0
