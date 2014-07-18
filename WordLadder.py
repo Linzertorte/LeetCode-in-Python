@@ -1,9 +1,4 @@
-
 class Solution:
-    # @param start, a string                                                                            
-    # @param end, a string                                                                              
-    # @param dict, a set of string                                                                      
-    # @return an integer
     lowercase = map(chr, range(97, 123))
     def ladderLength(self, start, end, dic):
         def nextWord(w,dic):
