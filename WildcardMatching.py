@@ -2,12 +2,8 @@ class Solution:
     def isMatch(self, s, p):
         def match_from(i,n, s,p):
             m = len(p)
-            if i+m > n:
-                return False
-            for j in xrange(m):
-                if not (p[j]=='?' or p[j]==s[i+j]):
-                    return False
-            return True
+            if i+m > n:return False
+            return reduce(lambda x,y: x and y,[p[j]=='?' or p[j]==s[i+j] for j in xrange(m)], True)
         pp = ""
         for a in p:
             if a=='*' and len(pp)>0 and pp[-1]=='*':
