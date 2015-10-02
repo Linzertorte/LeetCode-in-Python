@@ -1,6 +1,6 @@
 class Solution(object):
     def partition(self, s):
-        dp,result,acc = {},[],[]
+        dp,result = {},[]
         def ok(i,j):
             if i>j: return True
             if (i,j) not in dp:
