@@ -1,15 +1,10 @@
 class Solution:
     def isMatch(self, s, p):
-        def match_from(i,n, s,p):
+        def match_from(i,n, s, p):
             m = len(p)
             if i+m > n:return False
             return reduce(lambda x,y: x and y,[p[j]=='?' or p[j]==s[i+j] for j in xrange(m)], True)
-        pp = ""
-        for a in p:
-            if a=='*' and len(pp)>0 and pp[-1]=='*':
-                continue #ignore extra *
-            pp += a
-        chunks = pp.split('*')
+        chunks = re.split('\*+',p)
         cnt,n = len(chunks),len(s)
         if cnt == 1:
             return len(s)==len(p) and match_from(0,n,s,p)
