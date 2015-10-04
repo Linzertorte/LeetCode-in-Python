@@ -2,13 +2,15 @@ class Solution(object):
     def addOperators(self, num, target):
         n = len(num)
         def factor(s):
-            if len(s)==1: return [s]
-            op = ['*','']
-            return [s[0]+x+p for x in op for p in factor(s[1:])]
+            if len(s)==0: return ['']
+            n = 1 if s[0]=='0' else len(s)
+            r = []
+            for i in xrange(0,n):
+                op = '' if i+1 ==len(s) else '*'
+                r += [s[:i+1]+op+p for p in factor(s[i+1:])]
+            return r
         def evaluate(s):
             s = s.split('*')
-            for x in s:
-                if x[0]=='0' and len(x)>1: return None
             return reduce(lambda y,x: int(x)*y, s, 1) 
         dp = {}
         def dfs(i,target):
@@ -19,7 +21,6 @@ class Solution(object):
             for j in xrange(i,-1,-1):
                 for f in factor(num[j:i+1]):
                     x = evaluate(f)
-                    if x is None: continue
                     if j == 0:
                         r+=[f] if x==target else []
                     else:
