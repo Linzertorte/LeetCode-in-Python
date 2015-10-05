@@ -1,23 +1,23 @@
 class Solution(object):
     def recoverTree(self, root):
-        bad = []
-        def dfs(root): #return min,max
+        x,y = [],[]
+        def dfs(root):
             l,r = root,root
+            if len(x)==2: return l,r
             if root.left:
                 lmin,lmax = dfs(root.left)
                 l = lmin
-                if root.val<lmax.val: bad.append((lmax,root))
+                if root.val<lmax.val:
+                    x.append(lmax)
+                    y.append(root)
             if root.right:
                 rmin,rmax = dfs(root.right)
                 r = rmax
                 if rmin.val<root.val:
-                    bad.append((root,rmin))
+                    x.append(root)
+                    y.append(rmin)
             return l,r
         dfs(root)
-        if len(bad) ==1:
-            x,y = bad[0]
-        else:
-            ((a,b),(c,d)) = bad
-            x = a if a.val>c.val else c
-            y = b if b.val<d.val else d
+        x = max(x,key=lambda x:x.val)
+        y = min(y,key=lambda y:y.val)
         x.val,y.val = y.val,x.val
