@@ -19,7 +19,6 @@ class Solution(object):
             for j in xrange(0,9):
                 if board[i][j]!='.':
                     place(i,j,board[i][j])
-        print col, row, box
         def dfs(i,j):
             print '(',i,j,')'
             if i==9: return True
