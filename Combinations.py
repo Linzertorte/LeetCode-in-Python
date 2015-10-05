@@ -1,14 +1,8 @@
-class Solution:
-    def dfs(self,cur,n,k,coms,com):
-        if not k:
-            coms.append(com)
-            return
-        if cur==n:
-            return
-        self.dfs(cur+1,n,k-1,coms,com+[cur+1])
-        self.dfs(cur+1,n,k,coms,com+[])
-    # @return a list of lists of integers
+class Solution(object):
     def combine(self, n, k):
-        coms=[]
-        self.dfs(0,n,k,coms,[])
-        return coms
+        def dfs(i,k):
+            if i==n+1:
+                return [[]] if k==0 else []
+            if k==0: return [[]]
+            return [[j]+p for j in xrange(i,n+1) for p in dfs(j+1,k-1)]
+        return dfs(1,k)
