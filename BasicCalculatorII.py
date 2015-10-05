@@ -1,4 +1,3 @@
-import re
 class Solution(object):
     def calculate(self, s):
         s = ''.join([c for c in s if c!=' '])
