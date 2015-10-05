@@ -1,22 +1,14 @@
-class Solution:
-    # @return a string
-    def count(self,s):
-        t=''
-        cur='0'
-        cnt=0
-        for n in s:
-            if n != cur:
-                if cur!='0':
-                    t+=str(cnt)+cur
-                cur=n
-                cnt=1
-            else:
-                cnt+=1
-        t+=str(cnt)+cur
-        return t
-        
+class Solution(object):
     def countAndSay(self, n):
-        s="1"
-        for i in xrange(2,n+1):
-            s=self.count(s)
-        return s
+        def next(s):
+            n = len(s)
+            d = [0]+ filter(lambda x:s[x]!=s[x-1],range(1,n)) + [n]
+            n = len(d)-1
+            x = ''
+            for i in xrange(n):
+                x += str(d[i+1]-d[i])+s[d[i]]
+            return x
+        x=str(1)
+        for i in xrange(n-1):
+            x=next(x)
+        return x
